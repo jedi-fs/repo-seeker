@@ -1,6 +1,12 @@
-<%= form_with(url: search_repositories_path, method: :get, data: { turbo_frame: 'search_results' }) do %>
-  <%= text_field_tag :query, '', placeholder: 'Search Repository' %>
-  <%= button_tag 'Search' %>
-<% end %>
-
-<%= render partial: "repositories/partials/search_results" %>
+<div class='container mt-4'>
+  <div class='row'>
+    <div class='col-md-12'>
+      <%= render partial: "repositories/partials/form" %>
+    </div>
+  </div>
+  <div class='row'>
+    <div class='col-md-12'>
+      <%= render partial: "repositories/partials/search_results" %>
+    </div>
+  </div>
+</div>

@@ -24,6 +24,7 @@ RSpec.describe "GithubSearches", type: :system do
 
     repo_names = JSON.parse(github_repositories).pluck('name')
 
+    expect(page).to have_css('h1', text: 'Repo Seeker')
     expect(page).to have_css('ul li', count: repo_names.size)
     repo_names.each do |name|
       expect(page).to have_css('ul li', text: name)

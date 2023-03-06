@@ -1,8 +1,8 @@
 <%= turbo_frame_tag :search_results do%>
-  <ul>
+  <ul class='list-group'>
     <% if @repositories.present? %>
       <% @repositories.each do |repo| %>
-        <li>
+        <li class='list-group-item'>
           <%= repo['name'] %>
         </li>
       <% end %>
