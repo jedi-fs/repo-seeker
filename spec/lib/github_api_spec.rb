@@ -27,10 +27,10 @@ RSpec.describe GithubApi do
     it 'returns repositories based on query' do
       mojito_repositories = File.read('spec/fixtures/mojito_repositories.json')
       search_repos_url = "#{base_uri}/search/repositories"
-      search_query = { q: 'mojito' }
+      search_query = 'mojito'
 
       stub_request(:get, search_repos_url)
-        .with(query: search_query )
+        .with(query: { q: search_query } )
         .to_return(
           status: 200,
           headers: { content_type: 'application/json' },
@@ -39,7 +39,7 @@ RSpec.describe GithubApi do
       
       response = github_api.search_repositories(search_query)
 
-      expect(WebMock).to have_requested(:get, search_repos_url).with(query: search_query)
+      expect(WebMock).to have_requested(:get, search_repos_url).with(query: { q: search_query })
       expect(response.parsed_response).to eq(JSON.parse(mojito_repositories))
     end    
   end
