@@ -8,6 +8,9 @@ class GithubApi
   end
 
   def search_repositories(search_query)
-    self.class.get('/search/repositories', query: search_query)
+    params = {
+      q: search_query
+    }
+    self.class.get('/search/repositories', query: params)
   end
 end

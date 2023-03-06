@@ -1,0 +1,13 @@
+<%= turbo_frame_tag :search_results do%>
+  <ul>
+    <% if @repositories.present? %>
+      <% @repositories.each do |repo| %>
+        <li>
+          <%= repo['name'] %>
+        </li>
+      <% end %>
+    <% else %>
+      <p>No repositories found ;(</p>
+    <% end %>
+  </ul>
+<% end %>
